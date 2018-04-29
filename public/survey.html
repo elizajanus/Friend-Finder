@@ -2,21 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Tables</title>
+  <title>Friend Finder</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <script href="hotrsserver.js"></script>
+  <script href="../server.js"></script>
 
 </head>
 <body>
 
   <div class="container">
     <div class="jumbotron">
-      <h1>Hot Restaurant</h1>
-      <h3>Make a Reservation</h3>
+      <h1>Friend Finder</h1>
+      <h3>~take the survey, match with new friends~</h3>
       <hr>
-      <a href="/tables"><button class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-eye-open"></span>View Reservations</button></a>
       <a href="/"><button class="btn btn-lg"><span class="glyphicon glyphicon-home"></span></button></a>
     </div>
     <div class="row">
@@ -25,36 +24,138 @@
 
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="panel-title"><strong>Table Reservation</strong></h3>
+            <h3 class="panel-title"><strong>Survey Questions</strong></h3>
           </div>
           <div class="panel-body">
             <form method="POST" role="form">
 
               <div class="form-group">
-                <label for="customerName">Name</label>
-                <input type="text" class="form-control" id="customerName">
+                <label for="friendName">Name</label>
+                <input type="text" class="form-control" id="friendName">
               </div>
 
               <div class="form-group">
-                <label for="customerEmail">Email</label>
-                <input type="text" class="form-control" id="customerEmail">
+                <label for="friendPhoto">Image Link</label>
+                <input type="text" class="form-control" id="friendPhoto">
               </div>
 
-              <div class="form-group">
-                <label for="phoneNumber">Phone Number</label>
-                <input type="text" class="form-control" id="phoneNumber">
-              </div>
+            <div class="question">
+              <h4>Question 1</h4>
+              <h4>Your mind is always buzzing with unexplored ideas and plans.</h4>
+              <select class="chosen-select" id="question1">
+              <option value="1">1 (Strongly Disagree)</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5 (Strongly Agree)</option>
+          </select>
+        </div><br>
+          <div class="question">
+                <h4>Question 2</h4>
+                <h4>Generally speaking, you rely more on your experience than your imagination.</h4>
+                <select class="chosen-select" id="question2">
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+                </div><br>
+                <div class="question">
+                  <h4>Question 3</h4>
+                  <h4>You find it easy to stay relaxed and focused even when there is some pressure.</h4>
+                  <select class="chosen-select" id="question3">
+                  <option value="1">1 (Strongly Disagree)</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5 (Strongly Agree)</option>
+              </select>
+                  </div><br>
+                  <div class="question">
+                    <h4>Question 4</h4>
+                    <h4>You rarely do something just out of sheer curiosity.</h4>
+                    <select class="chosen-select" id="question4">
+                    <option value="1">1 (Strongly Disagree)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Strongly Agree)</option>
+                </select>
+                    </div><br>
+                    <div class="question">
+                      <h4>Question 5</h4>
+                      <h4>People can rarely upset you.</h4>
+                      <select class="chosen-select" id="question5">
+                          <option value="1">1 (Strongly Disagree)</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5 (Strongly Agree)</option>
+                      </select>
+                      </div><br>
+                      <div class="question">
+                        <h4>Question 6</h4>
+                        <h4>It is often difficult for you to relate to other people's feelings.</h4>
+                        <select class="chosen-select" id="question6">
+                        <option value="1">1 (Strongly Disagree)</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5 (Strongly Agree)</option>
+                    </select>
+                        </div><br>
+                        <div class="question">
+                          <h4>Question 7</h4>
+                          <h4>In a discussion, truth should be more important than people's sensitivities.</h4>
+                          <select class="chosen-select" id="question7">
+                          <option value="1">1 (Strongly Disagree)</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5 (Strongly Agree)</option>
+                      </select>
+                          </div><br>
+                          <div class="question">
+                            <h4>Question 8</h4>
+                            <h4>You rarely get carried away by fantasies and ideas.</h4>
+                            <select class="chosen-select" id="question8">
+                            <option value="1">1 (Strongly Disagree)</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5 (Strongly Agree)</option>
+                        </select>
+                            </div><br>
+                            <div class="question">
+                              <h4>Question 9</h4>
+                              <h4>You think that everyone's views should be respected regardless of whether thay are supported by facts or not.</h4>
+                              <select class="chosen-select" id="question9">
+                              <option value="1">1 (Strongly Disagree)</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                              <option value="5">5 (Strongly Agree)</option>
+                          </select>
+                              </div><br>
+                              <div class="question">
+                                <h4>Question 10</h4>
+                                <h4>You feel more energetic after spending time with a group of people.</h4>
+                              <select class="chosen-select" id="question10">
+                                <option value="1">1 (Strongly Disagree)</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5 (Strongly Agree)</option>
+                              </select>
+                                </div>
 
-              <div class="form-group">
-                <label for="customerID">Unique ID</label>
-                <input type="text" class="form-control" id="customerID">
-              </div>
-
-            </form>
+                    </form>
+                    </div>
+            
             <br>
-            <div class="text-right">
-              <button type="submit" class="btn btn-primary btn-md" id="add-btn"><span class="glyphicon glyphicon-fire"></span>Add to Reservations</button>
-            </div>
+              <button type="submit" class="btn btn-primary btn-md" id="add-btn">Submit</button>
+            <br><br>
           </div>
         </div>
 
@@ -67,23 +168,37 @@
 
     $("#add-btn").on("click", function(event) {
       event.preventDefault();
-      var newReservation = {
-        customerName: $("#customerName").val().trim(),
-        customerEmail: $("#customerEmail").val().trim(),
-        phoneNumber: $("#phoneNumber").val().trim(),
-        customerID: $("#customerID").val().trim()
+      var newFriend = {
+        name: $("#friendName").val().trim(),
+        photo: $("#friendPhoto").val().trim(),
+        scores: [
+          $("#question1").val(),
+          $("#question2").val(),
+          $("#question3").val(),
+          $("#question4").val(),
+          $("#question5").val(),
+          $("#question6").val(),
+          $("#question7").val(),
+          $("#question8").val(),
+          $("#question9").val(),
+          $("#question10").val()
+      ]
       };
      
-      console.log(newReservation);
+      console.log(newFriend);
   
-      $.post("/api/reservations", newReservation)
+      $.post("/api/friends", newFriend)
         .then(function(data) {
-          console.log("reservation.html", data);
-          alert("Adding reservation...");
+          console.log("survey.html", data);
+          alert("Adding profile...");
         });
     });
     
   </script>
-
+  <footer class="footer">
+    <div class="container">
+      <p><a href="/api/friends">API Friends Link</a> | <a href="https://github.com/elizajanus/Friend-Finder">GitHub Repo</a></p>
+    </div>
+  </footer>
 </body>
 </html>
