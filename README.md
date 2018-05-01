@@ -8,3 +8,5 @@
 
 ##A modal appears with the name and picture of your new best friend
 
+##BUGS: sometimes when Submit is clicked, server-side function runs but dynamic jquery does not. If Submit is clicked twice, it adds the newFriend twice
+
