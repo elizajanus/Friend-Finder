@@ -29,17 +29,17 @@ app.post("/api/friends", function(req, res){
                 }
             totalDifferenceArray.push(totalDifference);
          }
-        console.log(totalDifferenceArray);
+        //console.log(totalDifferenceArray);
            for (t = 0; t < totalDifferenceArray.length; t++) {
                if (totalDifferenceArray[t] < totalDifferenceArray[t+1]) {
                //console.log("if");
                var match = friendsData[t];
-               console.log(match);
+               console.log("your friend match is " + match.name);
            } else if (totalDifferenceArray[t+1] == null){
                //console.log("else if");
                var match = friendsData[t];
                res.json(match);
-               console.log(match);
+               console.log("your friend match is " + match.name);
            } else {
                //console.log("else");
                t++;
