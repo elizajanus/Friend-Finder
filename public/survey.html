@@ -22,6 +22,24 @@
 
       <div class="col-lg-12">
 
+          <div class="modal fade" id="friendModal" tabindex="-1" role="dialog" aria-labelledby="friendModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="friendModalLabel">Your New Best Friend</h4>
+                  </div>
+                  <div class="modal-body">
+                    <p id="friendname"></p>
+                    <img id="friendpic" alt="best friend" height="300" width="300" align="middle">
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+        
         <div class="panel panel-default">
           <div class="panel-heading">
             <h3 class="panel-title"><strong>Survey Questions</strong></h3>
@@ -148,14 +166,12 @@
                                 <option value="4">4</option>
                                 <option value="5">5 (Strongly Agree)</option>
                               </select>
-                                </div>
-
-                    </form>
-                    </div>
-            
+                            </div>
             <br>
-              <button type="submit" class="btn btn-primary btn-md" id="add-btn">Submit</button>
+              <button type="submit" class="btn btn-primary btn-lg" id="add-btn">Submit</button>
             <br><br>
+          </div>
+          </form>
           </div>
         </div>
 
@@ -172,26 +188,29 @@
         name: $("#friendName").val().trim(),
         photo: $("#friendPhoto").val().trim(),
         scores: [
-          $("#question1").val(),
-          $("#question2").val(),
-          $("#question3").val(),
-          $("#question4").val(),
-          $("#question5").val(),
-          $("#question6").val(),
-          $("#question7").val(),
-          $("#question8").val(),
-          $("#question9").val(),
-          $("#question10").val()
+          parseInt($("#question1").val()),
+          parseInt($("#question2").val()),
+          parseInt($("#question3").val()),
+          parseInt($("#question4").val()),
+          parseInt($("#question5").val()),
+          parseInt($("#question6").val()),
+          parseInt($("#question7").val()),
+          parseInt($("#question8").val()),
+          parseInt($("#question9").val()),
+          parseInt($("#question10").val())
       ]
       };
-     
-      console.log(newFriend);
   
       $.post("/api/friends", newFriend)
         .then(function(data) {
           console.log("survey.html", data);
           alert("Adding profile...");
+           $("#friendModal").modal('show');
+           $("#friendname").text(data.name);
+           $("#friendpic").attr("src", data.photo);
         });
+        
+  
     });
     
   </script>

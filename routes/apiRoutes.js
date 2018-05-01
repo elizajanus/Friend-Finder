@@ -11,30 +11,47 @@ app.get("/api/friends", function(req, res) {
 
 app.post("/api/friends", function(req, res){
   var newFriend = req.body;
-
-  function compatibility() {
-    var newFriendScores = newFriend.scores;  
+   function compatibility() {
+      var newFriendScores = newFriend.scores;  
+      var totalDifferenceArray = [];
+        for (var i = 0; i < friendsData.length; i++) {
+           //console.log("friendsData loop:"+ i);
+           var friendScores = friendsData[i].scores;
+           var differenceArray = [];
+              for (var j = 0; j < friendScores.length; j++) {  
+                 //console.log("friendScores loop:" + j);    
+                 var difference = Math.abs(friendScores[j] - newFriendScores[j]);
+                 differenceArray.push(difference);
+                 //console.log(differenceArray);
+                 var reducer = (accumulator, currentValue) => accumulator + currentValue;
+                 var totalDifference = differenceArray.reduce(reducer);
+                //console.log(totalDifference);
+                }
+            totalDifferenceArray.push(totalDifference);
+         }
+        console.log(totalDifferenceArray);
+           for (t = 0; t < totalDifferenceArray.length; t++) {
+               if (totalDifferenceArray[t] < totalDifferenceArray[t+1]) {
+               //console.log("if");
+               var match = friendsData[t];
+               console.log(match);
+           } else if (totalDifferenceArray[t+1] == null){
+               //console.log("else if");
+               var match = friendsData[t];
+               res.json(match);
+               console.log(match);
+           } else {
+               //console.log("else");
+               t++;
+           }
+         
+         }
+       }     
     
-    for (var i = 0; i < friendsData.length; i++) {
-        console.log("friendsData loop:"+ i);
-        var friendScores = friendsData[i].scores;
-         var differenceArray = [];
-         for (var i = 0; i < friendScores.length; i++) {  
-          console.log("friendScores loop:" + i);    
-          var difference = Math.abs(friendScores[i] - newFriendScores[i]);
-          differenceArray.push(difference);
-          console.log(differenceArray);
-          var reducer = (accumulator, currentValue) => accumulator + currentValue;
-          var totalDifference = differenceArray.reduce(reducer);
-          console.log(totalDifference);
-         } 
-    }
+    compatibility();
+
+    friendsData.push(newFriend);
+  
+    
+  });
   };
-  compatibility();
-
-  friendsData.push(newFriend);
-
-  res.json(newFriend);
-});
-
-};
